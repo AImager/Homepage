@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+{% assign casename = page.casename %}
+{% assign index = 0 %}
+
+<div id="head">
+  <div id="title">{{ casename }}</div>
+  <div id="status">
+    <span class="statu" id="movie_all"><i>全部</i></span>
+    <span class="statu" id="movie_has_watch"><i>看过</i></span>
+    <span class="statu" id="movie_want_watch"><i>想看</i></span>
+  </div>
+</div>
+
+<div id="movie_items">
+  {% for post in site.posts %}
+  {% if post.casename == casename %}
+  <div class="movie_item {{ post.watch_status }}">
+    <div class="movie_info">
+      <p class="moviename"><a class="douban_title" href={{ post.douban_url }}>{{ post.title }}</a></p>
+      <p class="directors">导演: {{ post.directors[0] }}{% if post.directors.size > 1 %} ~{% endif %}</p>
+      <p class="actors">主演: {{ post.actors[0] }} {% if post.actors[2].size > 1 %}~{% endif %}</p>
+      <p class="publish_date">发行: {{ post.publish_date }} {% if post.countries.size > 1 %}| {{ post.countries[1] }}{% if post.countries[1].size > 1 %} ~{% endif %}{% endif %}</p>
+      <p class="tag">标签: {% for tag in post.tag %}{{ tag }}  {% endfor %}</p>
+    </div>
+    <img class="cover" src={{ post.cover_path }}>
+    <div class="clearboth"></div>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+
+<script>
+  var getAll = function(){
+    var node = document.querySelectorAll(".movie_item");
+    for(var i=0;i<node.length;i++){
+      node[i].style.display="";
+    }
+  }
+
+  var getHaveWatch = function(){
+    getAll();
+    var node = document.querySelectorAll(".想看");
+    for(var i=0;i<node.length;i++){
+      node[i].style.display="none";
+    }
+  }
+
+  var getWantWatch = function(){
+    getAll();
+    var node = document.querySelectorAll(".看过");
+    for(var i=0;i<node.length;i++){
+      node[i].style.display="none";
+    }
+  }
+  document.getElementById("movie_all").addEventListener("click", getAll);
+  document.getElementById("movie_has_watch").addEventListener("click", getHaveWatch);
+  document.getElementById("movie_want_watch").addEventListener("click", getWantWatch);
+
+
+</script>
