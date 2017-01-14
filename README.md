@@ -1,0 +1,2 @@
+# Homepage
+Static homepage
