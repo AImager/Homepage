@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div id="head">
+<!-- <div id="head">
   <div id="main_title">AImager</div>
 </div>
 
@@ -24,4 +24,16 @@ layout: default
 
   </div>
 {% endfor %}
-</div>
+</div> -->
+
+
+<!-- {% assign moviecase =  site.time %} -->
+
+<script>
+	var timestamp = Date.parse(new Date());
+	timestamp = timestamp / 1000;
+	// console.log("{{ site.posts.size }}");
+	window.location.href="/v"+timestamp%{{ site.posts.size }};
+</script>
+
+<!-- <meta http-equiv=refresh content="0;url=/nagging/{{site.nagging.last.title | split:'-' | last }}.html"> -->

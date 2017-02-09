@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+  <link rel="stylesheet" href="/media/css/styles.css">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="initial-scale=1.0; width=device-width" />
+  {% if page.casename == null %}
+  <title>{{ page.title }}</title>
+  {% else %}
+  <title>{{ page.casename }}</title>
+  {% endif %}
+</head>
+
+<body>
+  <div id="content">
+	<div id="head">
+  	  <div id="main_title">AImager</div>
+  	</div>
+
+  	<!-- <div>
+  	{% assign moviecase =  site.posts | group_by: "casename" | sort: "name" %}
+  	{% for item in moviecase %}
+  	  <p><a href="/{{ item.items[0].douban_id }}.html" class="moviecase">{{ item.name }}</a></p>
+
+  	  <div class="home_tag_div">
+  	  {% for tag in site.tags %}
+  	  {% assign index = 0 %}
+  	  {% for post in tag[1] %}
+  	  {% if post.casename == item.name and index == 0 %}
+  	  {% assign index = 1 %}
+  	  <span class="home_tag">{{ tag[0] }}</span>
+  	  {% endif %}
+  	  {% endfor %}
+  	  {% endfor %}
+
+  	  </div>
+  	{% endfor %}
+  	</div> -->
+  </div>
+
+  <footer>
+    <div id="footer">
+      {% assign first_post = site.posts | last %} &copy; {{ first_post.date | date: "%Y" }} ~ {{ site.time | date: "%Y" }} aimager | <a href="http://blog.aimager.com">blog</a> | <a href="http://book.aimager.com" title="book">book</a> | <a href="http://film.aimager.com" title="film">film</a>
+    </div>
+  </footer>
+
+
+
+</body>
+
+</html>
