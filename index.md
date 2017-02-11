@@ -2,38 +2,15 @@
 layout: default
 ---
 
-<!-- <div id="head">
-  <div id="main_title">AImager</div>
-</div>
-
-<div>
-{% assign moviecase =  site.posts | group_by: "casename" | sort: "name" %}
-{% for item in moviecase %}
-  <p><a href="/{{ item.items[0].douban_id }}.html" class="moviecase">{{ item.name }}</a></p>
-
-  <div class="home_tag_div">
-  {% for tag in site.tags %}
-  {% assign index = 0 %}
-  {% for post in tag[1] %}
-  {% if post.casename == item.name and index == 0 %}
-  {% assign index = 1 %}
-  <span class="home_tag">{{ tag[0] }}</span>
-  {% endif %}
-  {% endfor %}
-  {% endfor %}
-
-  </div>
+{% assign pagesize = 0 %}
+{% for file in site.static_files %}
+   {% if file.path contains 'main.html' %}
+		{% assign pagesize = pagesize | plus: 1 %}
+   {% endif %}
 {% endfor %}
-</div> -->
-
-
-<!-- {% assign moviecase =  site.time %} -->
 
 <script>
 	var timestamp = Date.parse(new Date());
 	timestamp = timestamp / 1000;
-	// console.log("{{ site.posts.size }}");
-	window.location.href="/v"+timestamp%{{ site.posts.size }};
+	window.location.href="/v"+timestamp%{{ pagesize }}+"/html/main.html";
 </script>
-
-<!-- <meta http-equiv=refresh content="0;url=/nagging/{{site.nagging.last.title | split:'-' | last }}.html"> -->

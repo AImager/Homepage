@@ -2,14 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 
 <head>
-  <link rel="stylesheet" href="/media/css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="initial-scale=1.0; width=device-width" />
-  {% if page.casename == null %}
-  <title>{{ page.title }}</title>
-  {% else %}
-  <title>{{ page.casename }}</title>
-  {% endif %}
+  <title>AImager</title>
 </head>
 
 <body>
@@ -41,7 +37,7 @@
 
   <footer>
     <div id="footer">
-      {% assign first_post = site.posts | last %} &copy; {{ first_post.date | date: "%Y" }} ~ {{ site.time | date: "%Y" }} aimager | <a href="http://blog.aimager.com">blog</a> | <a href="http://book.aimager.com" title="book">book</a> | <a href="http://film.aimager.com" title="film">film</a>
+      &copy; aimager | <a href="http://blog.aimager.com">blog</a> | <a href="http://book.aimager.com" title="book">book</a> | <a href="http://film.aimager.com" title="film">film</a>
     </div>
   </footer>
 
