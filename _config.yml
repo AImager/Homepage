@@ -5,5 +5,6 @@ highlighter: rouge
 permalink: /:title.html
 name: "AImager"
 
-disqus: "gopherwood"
 encoding: utf-8
+
+author: "aimager"
