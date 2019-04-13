@@ -8,3 +8,5 @@ name: "AImager"
 encoding: utf-8
 
 author: "aimager"
+
+icon-path: "/aimager.png"
